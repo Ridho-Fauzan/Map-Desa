@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peta Interaktif Desa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside id="panel">
+    <header>
+      <h1 id="nama-desa">Peta Desa</h1>
+      <p id="lokasi-desa" class="muted"></p>
+      <button id="toggle-panel" aria-label="Buka/tutup panel">☰</button>
+    </header>
+
+    <div id="panel-body">
+      <!-- Info yang berubah saat dusun / fasilitas diklik -->
+      <section id="info" class="card"></section>
+
+      <section>
+        <h2>Cari tempat</h2>
+        <input id="cari" type="search" placeholder="Ketik nama tempat..." />
+      </section>
+
+      <section>
+        <h2>Tampilkan</h2>
+        <label class="row"><input type="checkbox" id="tgl-dusun" checked /> Wilayah kampung</label>
+        <div id="filter-kategori"></div>
+      </section>
+
+      <section>
+        <h2>Daftar tempat</h2>
+        <ul id="daftar-tempat"></ul>
+      </section>
+    </div>
+  </aside>
+
+  <main id="map"></main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
