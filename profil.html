@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Desa Beberan</title>
+  <meta name="description" content="Profil Desa Beberan: visi misi, wilayah, data penduduk, potensi, dan seni budaya." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Profil Desa</h1>
+        <p>Mengenal Desa Beberan lebih dekat: wilayah, warga, potensi, dan budayanya.</p>
+      </div>
+    </section>
+
+    <nav class="subnav" aria-label="Bagian profil">
+      <div class="container inner">
+        <a href="#tentang">Tentang</a>
+        <a href="#visi-misi">Visi &amp; Misi</a>
+        <a href="#wilayah">Wilayah</a>
+        <a href="#penduduk">Penduduk</a>
+        <a href="#potensi">Potensi</a>
+        <a href="#budaya">Seni Budaya</a>
+      </div>
+    </nav>
+
+    <section class="section" id="tentang">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="judul" style="text-align:left;margin-bottom:16px"><h2>Tentang Desa Beberan</h2></div>
+          <p id="tentang-teks"></p>
+          <h3>Keunggulan lokasi</h3>
+          <div class="chip-list" id="keunggulan" style="justify-content:flex-start"></div>
+        </div>
+        <div class="grid reveal" style="grid-template-columns:repeat(2,1fr)">
+          <div class="stat"><b data-count="3346">0</b><span>Jiwa</span></div>
+          <div class="stat"><b data-count="1689" data-suffix=" ha">0</b><span>Luas wilayah</span></div>
+          <div class="stat"><b data-count="1023">0</b><span>Rumah</span></div>
+          <div class="stat"><b data-count="4">0</b><span>Kampung</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="visi-misi">
+      <div class="container" style="max-width:820px">
+        <div class="judul reveal"><h2>Visi &amp; Misi</h2></div>
+        <div class="visi reveal"><small>Visi</small><span id="visi"></span></div>
+        <ol class="misi reveal" id="misi"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="wilayah">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Wilayah</h2>
+          <p>Klik nama kampung untuk melihatnya di peta.</p>
+        </div>
+        <div class="grid-2">
+          <div class="reveal">
+            <h3 style="text-align:center">Batas wilayah</h3>
+            <div class="kompas" id="kompas"></div>
+          </div>
+          <div class="reveal">
+            <h3>Luas kampung</h3>
+            <div class="bar-list" id="kampung"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="penduduk">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Data Penduduk</h2>
+          <p>Pilih kategori untuk melihat grafiknya. Arahkan kursor ke grafik untuk melihat angka.</p>
+        </div>
+        <div class="tabs" id="tab-grafik" role="tablist"></div>
+        <div class="chart-box reveal">
+          <div class="chart-wrap"><canvas id="grafik" aria-label="Grafik data penduduk"></canvas></div>
+          <div class="chart-info" id="info-grafik" aria-live="polite"></div>
+        </div>
+        <p class="catatan" id="catatan-data"></p>
+      </div>
+    </section>
+
+    <section class="section" id="potensi">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Potensi Desa</h2>
+          <p>Desa Beberan berpotensi dikembangkan menjadi pemasok beras tingkat provinsi.</p>
+        </div>
+        <div class="grid" id="daftar-potensi"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="budaya">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Seni &amp; Budaya</h2>
+          <p>Kesenian yang hidup di tengah masyarakat Beberan. Klik kartu untuk membaca penjelasannya.</p>
+        </div>
+        <div class="grid" id="kesenian"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profil.js"></script>
+</body>
+</html>

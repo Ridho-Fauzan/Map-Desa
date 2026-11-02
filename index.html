@@ -3,44 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peta Interaktif Desa</title>
+  <title>Desa Beberan – Kecamatan Ciruas, Kabupaten Serang</title>
+  <meta name="description" content="Website resmi Desa Beberan, Kecamatan Ciruas, Kabupaten Serang, Banten. Profil desa, layanan administrasi, dan peta interaktif." />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <aside id="panel">
-    <header>
-      <h1 id="nama-desa">Peta Desa</h1>
-      <p id="lokasi-desa" class="muted"></p>
-      <button id="toggle-panel" aria-label="Buka/tutup panel">☰</button>
-    </header>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container inner">
+        <div>
+          <span class="label">Kecamatan Ciruas · Kabupaten Serang · Banten</span>
+          <h1>Selamat datang di Desa Beberan</h1>
+          <p>Desa agraris penghasil beras dan salah satu pemasok beras untuk Bulog. Urus surat, kenali desa, dan jelajahi wilayah kami dari sini.</p>
+          <div class="tombol-grup">
+            <a class="btn btn-utama" href="layanan.html">📄 Layanan Surat</a>
+            <a class="btn btn-garis" href="profil.html">Profil Desa</a>
+          </div>
+        </div>
+        <div class="hero-peta">
+          <div id="peta-mini" style="height:100%"></div>
+          <a class="overlay" href="peta.html" aria-label="Buka peta interaktif desa"><span>🗺️ Jelajahi peta desa →</span></a>
+        </div>
+      </div>
+    </section>
 
-    <div id="panel-body">
-      <!-- Info yang berubah saat dusun / fasilitas diklik -->
-      <section id="info" class="card"></section>
+    <!-- Statistik -->
+    <section class="stats-bar">
+      <div class="container grid">
+        <div class="stat reveal"><b data-count="3346">0</b><span>Jiwa penduduk</span></div>
+        <div class="stat reveal"><b data-count="1689" data-suffix=" ha">0</b><span>Luas wilayah</span></div>
+        <div class="stat reveal"><b data-count="1023">0</b><span>Rumah</span></div>
+        <div class="stat reveal"><b data-count="4">0</b><span>Kampung</span></div>
+      </div>
+    </section>
 
-      <section>
-        <h2>Cari tempat</h2>
-        <input id="cari" type="search" placeholder="Ketik nama tempat..." />
-      </section>
+    <!-- Layanan cepat -->
+    <section class="section">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Layanan Administrasi</h2>
+          <p>Cek persyaratan surat sebelum datang ke kantor desa, supaya sekali datang langsung beres.</p>
+          <span id="status-kantor" class="status-kantor"></span>
+        </div>
+        <div class="grid" id="layanan-cepat"></div>
+        <div class="tengah"><a class="btn btn-hijau" href="layanan.html">Lihat semua layanan →</a></div>
+      </div>
+    </section>
 
-      <section>
-        <h2>Tampilkan</h2>
-        <label class="row"><input type="checkbox" id="tgl-dusun" checked /> Wilayah kampung</label>
-        <div id="filter-kategori"></div>
-      </section>
+    <!-- Potensi -->
+    <section class="section alt">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Potensi Desa</h2>
+          <p>Lahan sawah yang luas, irigasi, dan industri rumah tangga jadi tulang punggung ekonomi warga.</p>
+        </div>
+        <div class="grid" id="potensi"></div>
+      </div>
+    </section>
 
-      <section>
-        <h2>Daftar tempat</h2>
-        <ul id="daftar-tempat"></ul>
-      </section>
-    </div>
-  </aside>
-
-  <main id="map"></main>
+    <!-- Aspirasi -->
+    <section class="section">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Punya usulan atau keluhan?</h2>
+          <p>Sampaikan aspirasi tentang jalan, pelayanan, kesehatan, atau hal lain di lingkungan desa.</p>
+        </div>
+        <div class="tengah"><a class="btn btn-utama" href="layanan.html#aspirasi">💬 Sampaikan aspirasi</a></div>
+      </div>
+    </section>
+  </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/beranda.js"></script>
 </body>
 </html>
