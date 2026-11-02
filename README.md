@@ -1,33 +1,45 @@
-# Peta Interaktif Desa Beberan
+# Website Desa Beberan
 
-Peta interaktif Desa Beberan, Kecamatan Ciruas, Kabupaten Serang, Banten. Dibuat dengan [Leaflet](https://leafletjs.com) di atas citra satelit Esri World Imagery.
+Website layanan dan profil Desa Beberan, Kecamatan Ciruas, Kabupaten Serang, Banten. Situs statis (HTML, CSS, JavaScript) tanpa build dan tanpa server.
 
-## Fitur
+## Halaman
 
-- Citra satelit + label jalan, bisa ganti ke peta jalan OpenStreetMap
-- Batas desa dengan area luar desa digelapkan
-- Wilayah 4 kampung (Beberan, Ciwuni, Cibau, Cimiung) yang bisa di-hover dan diklik
-- Titik fasilitas dengan ikon per kategori dan popup info
-- Pencarian tempat, filter kategori, daftar tempat, legenda
-- Tampilan mobile
+| Halaman | Isi |
+|---------|-----|
+| `index.html` | Beranda: peta mini, statistik desa, layanan cepat, potensi, ajakan aspirasi |
+| `profil.html` | Tentang desa, visi & misi, batas wilayah, luas kampung, grafik penduduk, potensi, seni budaya |
+| `layanan.html` | Persyaratan surat (dengan checklist berkas), jam pelayanan + status buka/tutup, form aspirasi via WhatsApp |
+| `peta.html` | Peta interaktif dari citra satelit: batas desa, kampung, fasilitas |
 
 ## Struktur
 
-| File | Isi |
-|------|-----|
-| `index.html` | Halaman utama |
-| `style.css` | Tampilan |
-| `app.js` | Logika peta |
-| `data.js` | **Semua data peta** (info desa, batas, kampung, fasilitas) |
+```
+css/style.css   gaya seluruh situs
+css/peta.css    gaya khusus halaman peta
+js/data.js      SEMUA DATA: info desa, batas, kampung, fasilitas, kontak, profil, layanan
+js/main.js      header, footer, animasi, helper WhatsApp (dipakai semua halaman)
+js/beranda.js   js/profil.js   js/layanan.js   js/peta.js   script per halaman
+```
 
-Untuk mengubah isi peta, cukup edit `data.js`.
+Untuk mengubah isi website, cukup edit `js/data.js`.
 
-## Menjalankan
+## Yang perlu diisi
 
-Situs statis tanpa build. Buka `index.html` di browser, atau deploy folder ini ke Vercel / Netlify / Cloudflare Pages (framework preset: **Other**, tanpa build command).
+- `KONTAK.whatsapp` di `js/data.js`: nomor WhatsApp kantor desa (format `62xxxxxxxxxx`). Selama kosong, tombol WhatsApp menyalin pesan ke clipboard.
+- `KONTAK.jam`: jam pelayanan (saat ini masih contoh).
+- Batas desa, batas kampung, dan posisi fasilitas (saat ini masih perkiraan). Setelah diganti data asli, set `perkiraan: false`.
+- Persyaratan surat di `LAYANAN`: sesuaikan dengan ketentuan kantor desa.
 
-## Catatan data
+Link langsung yang didukung:
+- `layanan.html#domisili` membuka layanan tertentu (pakai `id` di `LAYANAN`)
+- `peta.html#Kampung%20Cibau` atau `peta.html#Kantor%20Desa%20Beberan` zoom ke kampung/tempat
 
-Data teks diambil dari profil desa di https://desabeberan.wordpress.com/profi/ (data sekitar 2010).
+## Deploy
 
-Batas desa, batas kampung, dan posisi fasilitas **masih perkiraan**. Ganti dengan data asli, lalu set `perkiraan: false` di `data.js`.
+Vercel: Framework Preset **Other**, Build Command dan Output Directory dikosongkan.
+
+## Sumber data
+
+Profil, penduduk, potensi, dan budaya dari https://desabeberan.wordpress.com/profi/ (data sekitar tahun 2010).
+
+Pustaka: [Leaflet](https://leafletjs.com), [Chart.js](https://www.chartjs.org), citra satelit Esri World Imagery.

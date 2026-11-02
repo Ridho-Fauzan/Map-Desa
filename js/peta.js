@@ -20,12 +20,7 @@ const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 const map = L.map("map", { layers: [satelit, labelJalan], zoomControl: true });
 L.control.scale({ imperial: false }).addTo(map);
 
-// ---------- Helper ----------
-const esc = (s) =>
-  String(s ?? "").replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
-  );
-const angka = (n) => Number(n).toLocaleString("id-ID");
+// esc() dan angka() berasal dari main.js
 const infoEl = document.getElementById("info");
 
 // ---------- Header ----------
@@ -257,6 +252,22 @@ document.getElementById("toggle-panel").onclick = () => {
   setTimeout(() => map.invalidateSize(), 200);
 };
 
+// ---------- Buka kampung / tempat dari link, misal peta.html#Kampung%20Cibau ----------
+function bukaDariHash() {
+  const nama = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+  if (!nama) return;
+  const kampung = dusunLayer.getLayers().find((l) => l.feature.properties.nama.toLowerCase() === nama);
+  if (kampung) return kampung.fire("click");
+  const tempat = semuaMarker.find(({ props }) => props.nama.toLowerCase() === nama);
+  if (tempat) {
+    map.setView(tempat.marker.getLatLng(), 18);
+    tempat.marker.openPopup();
+    tampilInfoTempat(tempat.props);
+  }
+}
+window.addEventListener("hashchange", bukaDariHash);
+
 // ---------- Init ----------
 tampilInfoDesa();
 renderDaftar();
+bukaDariHash();

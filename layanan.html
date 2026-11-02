@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layanan Desa Beberan</title>
+  <meta name="description" content="Persyaratan surat dan layanan administrasi Desa Beberan, jam pelayanan, dan aspirasi warga." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Layanan Desa</h1>
+        <p>Cek persyaratan, siapkan berkas, lalu datang ke kantor desa atau tanyakan dulu lewat WhatsApp.</p>
+        <span id="status-kantor" class="status-kantor"></span>
+      </div>
+    </section>
+
+    <section class="section" id="surat">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Layanan Administrasi</h2>
+          <p>Klik layanan untuk melihat persyaratan. Centang berkas yang sudah kamu siapkan. Centangan tersimpan di perangkatmu.</p>
+        </div>
+        <input id="cari-layanan" class="cari-layanan" type="search" placeholder="🔍 Cari layanan, misal: domisili, nikah, usaha..." aria-label="Cari layanan" />
+        <div class="layanan-list" id="daftar-layanan"></div>
+        <p class="catatan">Persyaratan di atas adalah persyaratan umum dan bisa berbeda. Pastikan ke kantor desa sebelum datang.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="jam">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="judul" style="text-align:left;margin-bottom:16px"><h2>Jam Pelayanan</h2></div>
+          <table class="jam-tabel" id="tabel-jam"></table>
+          <p class="bantuan" style="color:var(--abu);font-size:.85rem">Waktu Indonesia Barat (WIB).</p>
+        </div>
+        <div class="reveal">
+          <div class="judul" style="text-align:left;margin-bottom:16px"><h2>Lokasi Kantor</h2></div>
+          <p id="alamat"></p>
+          <div class="tombol-grup">
+            <a class="btn btn-hijau btn-kecil" href="peta.html#Kantor%20Desa%20Beberan">🗺️ Lihat di peta</a>
+            <button class="btn btn-wa btn-kecil" id="tanya-wa">💬 Tanya via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aspirasi">
+      <div class="container">
+        <div class="judul reveal">
+          <h2>Aspirasi &amp; Pengaduan Warga</h2>
+          <p>Sampaikan usulan atau keluhan. Pesan dikirim ke WhatsApp kantor desa.</p>
+        </div>
+        <form class="form reveal" id="form-aspirasi" novalidate>
+          <label>Nama
+            <input type="text" name="nama" required maxlength="80" autocomplete="name" />
+          </label>
+          <label>Kampung
+            <select name="kampung" required id="pilih-kampung">
+              <option value="">Pilih kampung</option>
+            </select>
+          </label>
+          <fieldset>
+            <legend>Kategori</legend>
+            <div class="pilihan" id="pilih-kategori"></div>
+          </fieldset>
+          <label>Isi aspirasi
+            <textarea name="isi" required maxlength="1000" placeholder="Contoh: Jalan di depan masjid Kampung Cibau berlubang dan sering tergenang saat hujan."></textarea>
+            <span class="bantuan"><span id="hitung">0</span>/1000 karakter</span>
+          </label>
+          <div class="tombol-grup">
+            <button class="btn btn-wa" type="submit">💬 Kirim lewat WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/layanan.js"></script>
+</body>
+</html>
